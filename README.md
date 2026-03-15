@@ -33,4 +33,4 @@ claude --plugin-dir ./cv-skills
 
 ## Development
 
-See `plugin_plan.md` for the full v1 specification and `docs/future_candidates.md` for v2+ candidates.
+See `PLAN.md` for the full v1 specification and `docs/future_candidates.md` for v2+ candidates.

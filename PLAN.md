@@ -42,7 +42,7 @@ cv-skills/
 ├── scripts/
 │   └── UV_RULES.md              # UV-only workflow rules for all scripts
 ├── requirements.txt             # reference only — not needed for running scripts
-├── plugin_plan.md
+├── PLAN.md
 └── CLAUDE.md
 ```
 

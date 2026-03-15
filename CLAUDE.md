@@ -74,4 +74,4 @@ UV-only workflow — no `pip install`, no virtualenv. Every script uses PEP 723 
 
 ## Plan Reference
 
-See `plugin_plan.md` for the full v1 specification (42 operations) and `docs/future_candidates.md` for v2+ candidates.
+See `PLAN.md` for the full v1 specification (42 operations) and `docs/future_candidates.md` for v2+ candidates.

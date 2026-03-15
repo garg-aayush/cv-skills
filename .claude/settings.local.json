@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.opencv.org)",
+      "WebFetch(domain:www.geeksforgeeks.org)",
+      "WebFetch(domain:opencv24-python-tutorials.readthedocs.io)",
+      "Bash(gh api:*)"
+    ]
+  }
+}
