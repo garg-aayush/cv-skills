@@ -7,7 +7,8 @@ A Claude Code plugin for image processing — covering both basic image operatio
 ```
 cv-skills/
 ├── .claude-plugin/
-│   └── plugin.json
+│   ├── plugin.json
+│   └── marketplace.json
 ├── skills/
 │   ├── format-io/              ✅ implemented
 │   │   ├── SKILL.md
@@ -39,6 +40,7 @@ cv-skills/
 │   └── future_candidates.md
 ├── PLAN.md
 ├── README.md
+├── LICENSE
 └── CLAUDE.md
 ```
 

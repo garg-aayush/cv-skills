@@ -1,0 +1,24 @@
+{
+  "name": "cv-skills",
+  "owner": {
+    "name": "Aayush Garg"
+  },
+  "metadata": {
+    "description": "Image processing plugin for Claude Code — basic operations and classical computer vision"
+  },
+  "plugins": [
+    {
+      "name": "cv-skills",
+      "source": {
+        "source": "github",
+        "repo": "aayushgarg/cv-skills"
+      },
+      "description": "42 image processing operations across 7 skills: format conversion, SVG rendering, resize/crop/rotate, color adjustment, filters, segmentation/morphology, and compositing/blending",
+      "author": {
+        "name": "Aayush Garg"
+      },
+      "license": "MIT",
+      "keywords": ["image-processing", "computer-vision", "opencv", "pillow", "svg", "resize", "filters"]
+    }
+  ]
+}
