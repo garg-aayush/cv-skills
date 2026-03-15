@@ -12,22 +12,22 @@ cv-skills/
 │   ├── format-io/              ✅ implemented
 │   │   ├── SKILL.md
 │   │   └── scripts/format_io.py
-│   ├── svg-convert/
+│   ├── svg-convert/            ✅ implemented
 │   │   ├── SKILL.md
 │   │   └── scripts/svg_convert.py
-│   ├── resize-geometry/
+│   ├── resize-geometry/        ✅ implemented
 │   │   ├── SKILL.md
 │   │   └── scripts/resize_geometry.py
-│   ├── color-adjustment/
+│   ├── color-adjustment/       ✅ implemented
 │   │   ├── SKILL.md
 │   │   └── scripts/color_adjustment.py
-│   ├── filters-enhancement/
+│   ├── filters-enhancement/    ✅ implemented
 │   │   ├── SKILL.md
 │   │   └── scripts/filters_enhancement.py
-│   ├── segment-morphology/
+│   ├── segment-morphology/     ✅ implemented
 │   │   ├── SKILL.md
 │   │   └── scripts/segment_morphology.py
-│   └── compositing-blending/
+│   └── compositing-blending/   ✅ implemented
 │       ├── SKILL.md
 │       └── scripts/compositing_blending.py
 ├── docs/
