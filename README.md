@@ -1,42 +1,42 @@
 # cv-skills
 
-A Claude Code plugin for image processing — 42 operations across 7 skills covering basic image operations and classical computer vision.
+Image processing skills for Claude Code — 42 operations across 7 skills covering format conversion, spatial transforms, color adjustment, filtering, segmentation, and compositing.
 
-## Install
+## Getting Started
 
-```bash
-# From marketplace
+Install the plugin, then just describe what you need — Claude picks the right skill automatically.
+
+```
 /plugin marketplace add aayushgarg/cv-skills
-/plugin install cv-skills@cv-skills
+/plugin install cv-skills@aayushgarg-cv-skills
+```
 
-# Or load from local directory
-claude --plugin-dir ./cv-skills
+To update:
+
+```
+/plugin update cv-skills@aayushgarg-cv-skills
 ```
 
 ### Prerequisites
 
-- [uv](https://docs.astral.sh/uv/) — Python package manager (required for all skills)
-- [resvg](https://github.com/RazrFalcon/resvg/releases) — SVG renderer (recommended for svg-convert; falls back to cairosvg)
+- [uv](https://docs.astral.sh/uv/) — required for all skills
+- [resvg](https://github.com/RazrFalcon/resvg/releases) — recommended for SVG rendering (falls back to [cairosvg](https://cairosvg.org/))
 
-Pre-use hooks automatically check for these and provide install instructions if missing.
+Pre-use hooks check for these automatically and provide install instructions if missing.
 
 ## Skills
 
-| Skill | Ops | What it covers |
-|---|---|---|
-| **format-io** | 6 | Format conversion, alpha channels, EXIF, ICC profiles, animated frames |
-| **svg-convert** | 3 | SVG to raster (PNG/JPEG/WebP), metadata inspection, scaled rendering |
-| **resize-geometry** | 6 | Resize, crop, auto-crop, pad, rotate/flip, montage grids |
-| **color-adjustment** | 9 | Tone, saturation, grayscale, invert, color spaces, channels, histograms |
-| **filters-enhancement** | 4 | Blur, bilateral filter, sharpen, denoise |
-| **segment-morphology** | 7 | Threshold, edge detection, morphology, contours, color segmentation, GrabCut |
-| **compositing-blending** | 4 | Composite/blend, watermark, image diff, background removal |
+| Skill | Description |
+|---|---|
+| `format-io` | Read image metadata, convert between formats (PNG/JPEG/WebP/TIFF/BMP/HEIC), handle alpha channels, EXIF data, ICC profiles, and animated GIF/WebP frames |
+| `svg-convert` | Convert SVG to raster formats, inspect SVG metadata, render at custom scales or dimensions |
+| `resize-geometry` | Resize, crop, auto-crop, pad, rotate/flip, and combine images into montage grids |
+| `color-adjustment` | Adjust tone, saturation, grayscale, invert, convert color spaces, split/merge channels, histograms, equalize, auto-levels |
+| `filters-enhancement` | Gaussian/box/median blur, bilateral filter, sharpen (basic/unsharp/laplacian), denoise |
+| `segment-morphology` | Threshold, Canny/Sobel/Laplacian edges, morphological operations, contour extraction, color segmentation, GrabCut |
+| `compositing-blending` | Alpha composite, blend, paste/overlay, text and image watermarks, pixel diff, background removal |
 
-## How It Works
-
-Every script uses [PEP 723](https://peps.python.org/pep-0723/) inline dependency declarations and runs with `uv run` — no pip install, no virtualenv, no setup. Dependencies are resolved automatically on first run.
-
-Just describe what you need — Claude picks the right skill and operations automatically.
+Skills are invoked using `/cv-skills:<skill-name>` syntax or triggered automatically from your description.
 
 ## License
 
