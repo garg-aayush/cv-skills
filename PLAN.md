@@ -259,5 +259,5 @@ See `docs/future_candidates.md` for the full list of operations deferred to v2+.
 - [x] ~~Review reference plugins for best practices~~ — Reviewed [HF Skills](https://github.com/huggingface/skills) and [evals-skills](https://github.com/hamelsmu/evals-skills)
 - [x] ~~SVG library choice~~ — resvg CLI (primary) + cairosvg (fallback)
 - [x] ~~CLI interface pattern~~ — **Subcommands** (e.g., `uv run script.py blur INPUT -o OUT --sigma 2`). Each operation is a subcommand with its own params and `--help`. Matches HF datasets pattern.
-- [x] ~~Error handling~~ — **Strict with helpful errors**. Reject bad input with actionable messages (e.g., `"Error: Expected grayscale image, got RGB. Run color-adjust grayscale first."`). No silent auto-conversion.
+- [x] ~~Error handling~~ — **Graceful auto-conversion where predictable** (e.g., RGBA→JPEG auto-strips alpha onto white with info message). Reject truly invalid input with actionable error messages (e.g., `"Error: Expected grayscale image, got RGB. Run color-adjust grayscale first."`).
 

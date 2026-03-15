@@ -176,7 +176,7 @@ def cmd_info(args: argparse.Namespace) -> None:
     # Alpha channel
     result["has_alpha"] = img.mode in ("RGBA", "LA", "PA")
 
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2, default=str))
 
 
 def cmd_convert(args: argparse.Namespace) -> None:
@@ -191,12 +191,11 @@ def cmd_convert(args: argparse.Namespace) -> None:
     out_ext = out.suffix.lower()
     save_params = _infer_save_params(out, args)
 
-    # RGBA → JPEG: explicit error
+    # RGBA → JPEG: auto-strip alpha onto white background
     if out_ext in (".jpg", ".jpeg") and img.mode == "RGBA":
-        _err(
-            "Cannot save RGBA image as JPEG (JPEG does not support transparency). "
-            "Remove alpha first: uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
-        )
+        background = Image.new("RGBA", img.size, (255, 255, 255, 255))
+        img = Image.alpha_composite(background, img).convert("RGB")
+        _info("Stripped alpha channel (composited on white) for JPEG output.")
 
     # Palette mode (P) → RGB for JPEG
     if out_ext in (".jpg", ".jpeg") and img.mode == "P":
@@ -204,10 +203,9 @@ def cmd_convert(args: argparse.Namespace) -> None:
 
     # LA mode → L for JPEG (strip alpha)
     if out_ext in (".jpg", ".jpeg") and img.mode == "LA":
-        _err(
-            "Cannot save LA (grayscale + alpha) image as JPEG. "
-            "Remove alpha first: uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
-        )
+        background = Image.new("LA", img.size, (255, 255))
+        img = Image.alpha_composite(background.convert("RGBA"), img.convert("RGBA")).convert("L")
+        _info("Stripped alpha channel from grayscale image for JPEG output.")
 
     # Mode I (32-bit) → 8-bit for formats that need it
     if img.mode == "I" and out_ext in (".jpg", ".jpeg", ".webp", ".bmp", ".gif"):

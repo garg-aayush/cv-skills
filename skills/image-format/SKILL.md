@@ -68,7 +68,7 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/format_io.py convert input.png -o output.tiff
 | `--compress-level N` | PNG compression (0-9) |
 | `--tiff-compression` | TIFF compression method |
 
-Errors on RGBA → JPEG (alpha not supported). Fix: run `alpha --mode remove` first.
+RGBA → JPEG is handled automatically: alpha is composited onto white and stripped. To choose a different background color, run `alpha --mode remove --background COLOR` first.
 
 ### alpha
 
@@ -185,5 +185,5 @@ Output must be `.gif` or `.webp`. Requires at least 2 frames. All frames must ha
 - Do NOT use `convert` for resizing — use the `resize-transform` skill
 - Do NOT use `convert` to adjust colors/brightness — use `color-adjust`
 - Do NOT manually parse EXIF bytes — use `exif --mode read`
-- Do NOT strip alpha by converting RGBA to RGB directly — use `alpha --mode remove` to composite properly
+- Do NOT strip alpha by converting RGBA to RGB directly — `convert` auto-composites on white for JPEG; use `alpha --mode remove` if you need a custom background color
 - Do NOT convert animated images with `convert` — use `split-frames` / `assemble-frames`
