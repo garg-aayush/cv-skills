@@ -1,0 +1,7 @@
+{
+  "name": "cv-skills",
+  "version": "0.1.0",
+  "description": "Image processing plugin for Claude Code — basic operations and classical computer vision",
+  "keywords": ["image-processing", "computer-vision", "opencv", "pillow"],
+  "skills": "./skills/"
+}
