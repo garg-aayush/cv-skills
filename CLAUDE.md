@@ -30,6 +30,10 @@ cv-skills/
 │   └── compositing-blending/   ✅ implemented
 │       ├── SKILL.md
 │       └── scripts/compositing_blending.py
+├── hooks/
+│   └── hooks.json
+├── scripts/
+│   └── check-uv.sh
 ├── docs/
 │   └── future_candidates.md
 ├── PLAN.md
@@ -62,6 +66,7 @@ UV-only workflow — no `pip install`, no virtualenv. Every script uses PEP 723 
 - **Strict errors** — reject bad input with actionable messages, no silent auto-conversion
 - **SVG: resvg CLI + cairosvg fallback** — prerequisite check on first use
 - **BGR↔RGB conversion** at boundaries between OpenCV and Pillow
+- **PreToolUse hook** — `hooks/hooks.json` registers a Bash pre-hook (`scripts/check-uv.sh`) that blocks `uv run` commands if `uv` is not installed, with install instructions
 - **Replaces basic-image-editing** — self-contained, no external skill dependencies
 
 ## SKILL.md Conventions
