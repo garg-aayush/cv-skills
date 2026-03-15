@@ -1,6 +1,6 @@
 # CV Skills - Image Processing Plugin for Claude Code
 
-A Claude Code plugin for image processing — covering both basic image operations and classical computer vision. 42 operations across 7 skills. Will eventually replace the existing `basic-image-editing` skill.
+Skills for performing classical image processing operations: format conversion, SVG rendering, resize/crop/rotate, color adjustment, filters, segmentation/morphology, and compositing/blending.
 
 ## Project Structure
 
@@ -10,25 +10,25 @@ cv-skills/
 │   ├── plugin.json
 │   └── marketplace.json
 ├── skills/
-│   ├── format-io/              ✅ implemented
+│   ├── format-io/
 │   │   ├── SKILL.md
 │   │   └── scripts/format_io.py
-│   ├── svg-convert/            ✅ implemented
+│   ├── svg-convert/
 │   │   ├── SKILL.md
 │   │   └── scripts/svg_convert.py
-│   ├── resize-geometry/        ✅ implemented
+│   ├── resize-geometry/
 │   │   ├── SKILL.md
 │   │   └── scripts/resize_geometry.py
-│   ├── color-adjustment/       ✅ implemented
+│   ├── color-adjustment/
 │   │   ├── SKILL.md
 │   │   └── scripts/color_adjustment.py
-│   ├── filters-enhancement/    ✅ implemented
+│   ├── filters-enhancement/
 │   │   ├── SKILL.md
 │   │   └── scripts/filters_enhancement.py
-│   ├── segment-morphology/     ✅ implemented
+│   ├── segment-morphology/
 │   │   ├── SKILL.md
 │   │   └── scripts/segment_morphology.py
-│   └── compositing-blending/   ✅ implemented
+│   └── compositing-blending/
 │       ├── SKILL.md
 │       └── scripts/compositing_blending.py
 ├── hooks/
@@ -70,7 +70,7 @@ UV-only workflow — no `pip install`, no virtualenv. Every script uses PEP 723 
 - **SVG: resvg CLI + cairosvg fallback** — prerequisite check on first use
 - **BGR↔RGB conversion** at boundaries between OpenCV and Pillow
 - **PreToolUse hooks** — `hooks/hooks.json` registers two Bash pre-hooks: `check-uv.sh` blocks all `uv run` commands if `uv` is missing; `check-svg-renderer.sh` blocks svg-convert render/resize-render if neither resvg nor cairosvg is available (skips `info` which needs no renderer)
-- **Replaces basic-image-editing** — self-contained, no external skill dependencies
+- **Self-contained** — no external skill dependencies
 
 ## SKILL.md Conventions
 
@@ -106,12 +106,6 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/svg_convert.py <subcommand> [args]
 - Do NOT modify or install from a requirements.txt
 - Requires `resvg` on PATH — if missing, the script falls back to cairosvg
 ```
-
-## Build Order
-
-1. **Skills 1-3** (format-io, svg-convert, resize-geometry) — foundational
-2. **Skills 4-5** (color-adjustment, filters-enhancement) — preprocessing pipeline
-3. **Skills 6-7** (segment-morphology, compositing-blending) — core CV operations
 
 ## Plan Reference
 

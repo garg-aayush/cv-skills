@@ -1,6 +1,6 @@
 # cv-skills
 
-Image processing skills for Claude Code — 42 operations across 7 skills covering format conversion, spatial transforms, color adjustment, filtering, segmentation, and compositing.
+Skills for performing classical image processing operations: format conversion, SVG rendering, resize/crop/rotate, color adjustment, filters, segmentation/morphology, and compositing/blending.
 
 ## Getting Started
 
