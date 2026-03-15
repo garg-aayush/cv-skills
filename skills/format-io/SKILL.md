@@ -17,13 +17,17 @@ Image format conversion, metadata inspection, alpha/EXIF/ICC handling, and anima
 
 - `uv` on PATH
 
-## Script
+## Running Scripts
 
 All commands use:
 
 ```
 uv run ${CLAUDE_SKILL_DIR}/scripts/format_io.py <subcommand> [args]
 ```
+
+- Always run with `uv run` — never `python`, `pip install`, or virtualenv activation
+- Dependencies are declared inline (PEP 723) — `uv run` handles resolution automatically
+- Do NOT modify or install from a requirements.txt
 
 ## Subcommands
 

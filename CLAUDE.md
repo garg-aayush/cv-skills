@@ -7,10 +7,9 @@ A Claude Code plugin for image processing — covering both basic image operatio
 ```
 cv-skills/
 ├── .claude-plugin/
-│   ├── plugin.json
-│   └── marketplace.json
+│   └── plugin.json
 ├── skills/
-│   ├── format-io/
+│   ├── format-io/              ✅ implemented
 │   │   ├── SKILL.md
 │   │   └── scripts/format_io.py
 │   ├── svg-convert/
@@ -31,11 +30,10 @@ cv-skills/
 │   └── compositing-blending/
 │       ├── SKILL.md
 │       └── scripts/compositing_blending.py
-├── scripts/
-│   └── UV_RULES.md
-├── requirements.txt             # reference only — not needed for running
-├── plugin_plan.md
-├── future_candidates.md
+├── docs/
+│   └── future_candidates.md
+├── PLAN.md
+├── README.md
 └── CLAUDE.md
 ```
 
@@ -65,6 +63,41 @@ UV-only workflow — no `pip install`, no virtualenv. Every script uses PEP 723 
 - **SVG: resvg CLI + cairosvg fallback** — prerequisite check on first use
 - **BGR↔RGB conversion** at boundaries between OpenCV and Pillow
 - **Replaces basic-image-editing** — self-contained, no external skill dependencies
+
+## SKILL.md Conventions
+
+Every SKILL.md must include a "Running Scripts" section with UV rules inline — each skill must be self-contained for plugin distribution (no reliance on this repo's CLAUDE.md).
+
+**Standard block (6 skills):**
+```markdown
+## Running Scripts
+
+All commands use:
+
+\`\`\`
+uv run ${CLAUDE_SKILL_DIR}/scripts/<script>.py <subcommand> [args]
+\`\`\`
+
+- Always run with `uv run` — never `python`, `pip install`, or virtualenv activation
+- Dependencies are declared inline (PEP 723) — `uv run` handles resolution automatically
+- Do NOT modify or install from a requirements.txt
+```
+
+**svg-convert block (uses resvg CLI):**
+```markdown
+## Running Scripts
+
+SVG rendering uses the `resvg` CLI binary (called via subprocess). The Python script handles argument parsing and fallback.
+
+\`\`\`
+uv run ${CLAUDE_SKILL_DIR}/scripts/svg_convert.py <subcommand> [args]
+\`\`\`
+
+- Always run with `uv run` — never `python`, `pip install`, or virtualenv activation
+- Dependencies are declared inline (PEP 723) — `uv run` handles resolution automatically
+- Do NOT modify or install from a requirements.txt
+- Requires `resvg` on PATH — if missing, the script falls back to cairosvg
+```
 
 ## Build Order
 
