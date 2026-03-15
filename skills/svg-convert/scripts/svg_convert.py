@@ -44,7 +44,7 @@ def _validate_input(path: str) -> Path:
     ext = p.suffix.lower()
     if ext != ".svg":
         _err(f"Unsupported input format '{ext}'. This skill only handles SVG files (.svg). "
-             "For raster-to-raster conversion, use the format-io skill.")
+             "For raster-to-raster conversion, use the image-format skill.")
     return p
 
 

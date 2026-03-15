@@ -1,15 +1,15 @@
 ---
-name: color-adjustment
+name: color-adjust
 description: >
-  Adjust image tone (brightness, contrast, gamma), saturation, grayscale conversion,
-  invert colors, convert color spaces, split/merge channels, compute histograms,
-  equalize histograms, and auto-level. Use when the task involves color correction,
-  tone adjustment, channel manipulation, or histogram operations. Do NOT use for
-  resizing/cropping (use resize-geometry), blur/sharpen (use filters-enhancement),
-  or format conversion (use format-io).
+  Adjust brightness, contrast, gamma, saturation, and color balance; convert to
+  grayscale or between color spaces; split/merge channels; compute and equalize
+  histograms; auto-level. Use when the user wants to brighten or darken a photo,
+  fix exposure, boost or reduce color intensity, desaturate, invert colors, view
+  color channels, or correct color cast. For producing a binary black/white mask
+  (thresholding), use edges-masks instead.
 ---
 
-# color-adjustment
+# color-adjust
 
 Tone, saturation, grayscale, invert, color space conversion, channel split/merge, histograms, equalization, and auto-levels.
 
@@ -215,10 +215,10 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/color_adjustment.py auto-levels photo.jpg -o 
 
 ## Anti-patterns
 
-- Do NOT use `tone` for resizing — use the `resize-geometry` skill
+- Do NOT use `tone` for resizing — use the `resize-transform` skill
 - Do NOT use `saturation --factor 0` as a grayscale converter — use `grayscale` for proper luminance weighting
 - Do NOT use `colorspace` and expect displayable output — the raw channel values are not RGB
 - Do NOT use `equalize` on already well-exposed images — it may introduce artifacts
 - Do NOT use `channel --mode split` and manually recombine — use `channel --mode merge` instead
-- Do NOT blur/sharpen with this skill — use `filters-enhancement`
-- Do NOT convert formats with this skill — use `format-io`
+- Do NOT blur/sharpen with this skill — use `image-filters`
+- Do NOT convert formats with this skill — use `image-format`

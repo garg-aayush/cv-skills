@@ -1,14 +1,15 @@
 ---
-name: compositing-blending
+name: image-combine
 description: >
-  Alpha composite, blend, paste/overlay images, add text or image watermarks,
-  compute pixel difference maps, and remove backgrounds via GrabCut. Use when
-  the task involves combining images, watermarking, comparing images, or
-  background removal. Do NOT use for color adjustment (use color-adjustment),
-  resizing (use resize-geometry), or edge detection (use segment-morphology).
+  Composite, blend, overlay, and paste images together; add text or image
+  watermarks; compute visual difference maps; remove backgrounds. Use when the
+  user wants to combine or layer two images, create a watermark, compare two
+  images for differences, merge photos, or remove a background to produce a
+  transparent PNG cutout. Do NOT use for arranging images in a grid (use
+  resize-transform montage) or for edge/contour analysis (use edges-masks).
 ---
 
-# compositing-blending
+# image-combine
 
 Composite, blend, watermark, diff, and background removal for images.
 
@@ -57,7 +58,7 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/compositing_blending.py composite base.png ov
 | `--position x,y` | Paste position for `--mode paste` (default: 0,0) |
 
 **Notes:**
-- `alpha` and `blend` require both images to be the same size. Resize first with resize-geometry.
+- `alpha` and `blend` require both images to be the same size. Resize first with resize-transform.
 - `alpha` mode output is RGBA — use PNG or WebP as output format (not JPEG).
 - `paste` mode preserves the base image's mode. If overlay has alpha, it is used as a transparency mask.
 
@@ -116,7 +117,7 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/compositing_blending.py diff img1.jpg img2.jp
 | `--threshold N` | Set pixels with difference below N to 0 (default: 0) |
 
 **Notes:**
-- Both images must be the same size. Resize first with resize-geometry if needed.
+- Both images must be the same size. Resize first with resize-transform if needed.
 - RGBA images are compared as RGB (alpha channel ignored).
 - Output is the absolute per-pixel difference, clipped to 0-255.
 
@@ -150,8 +151,8 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/compositing_blending.py remove-bg photo.png -
 
 ## Anti-patterns
 
-- Do NOT use `composite --mode blend` to resize images — use the `resize-geometry` skill first, then blend
-- Do NOT use `remove-bg` for edge detection — use `segment-morphology` for Canny/Sobel edges
+- Do NOT use `composite --mode blend` to resize images — use the `resize-transform` skill first, then blend
+- Do NOT use `remove-bg` for edge detection — use `edges-masks` for Canny/Sobel edges
 - Do NOT use `diff` for color comparison — it computes per-pixel absolute difference, not perceptual similarity
 - Do NOT save `remove-bg` output as JPEG — JPEG does not support alpha. Use PNG or WebP.
 - Do NOT use `watermark` for compositing two full images — use `composite` instead

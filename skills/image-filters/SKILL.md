@@ -1,14 +1,14 @@
 ---
-name: filters-enhancement
+name: image-filters
 description: >
-  Apply blur (Gaussian/box/median), bilateral filtering, sharpen
-  (basic/unsharp/laplacian), and denoise images. Use when the task involves
-  smoothing, noise reduction, sharpening, or edge-preserving filtering. Do NOT
-  use for color adjustments (use color-adjustment), resizing (use resize-geometry),
-  or edge detection (use segment-morphology).
+  Blur, sharpen, denoise, and apply edge-preserving bilateral filters. Use when
+  the user wants to smooth an image, soften details, reduce noise or grain,
+  sharpen a blurry photo, or apply Gaussian/median/unsharp-mask filters. Do NOT
+  use for edge detection (use edges-masks) or color/brightness adjustments
+  (use color-adjust).
 ---
 
-# filters-enhancement
+# image-filters
 
 Spatial filtering, noise reduction, and sharpening for raster images.
 
@@ -131,7 +131,7 @@ Default: auto-detect from image mode (RGB/RGBA uses color, L uses gray).
 ## Anti-patterns
 
 - Do NOT use `blur` for edge-preserving smoothing — use `bilateral` instead
-- Do NOT use `sharpen` to enhance edges for detection — use the `segment-morphology` skill (Canny/Sobel)
+- Do NOT use `sharpen` to enhance edges for detection — use the `edges-masks` skill (Canny/Sobel)
 - Do NOT use `denoise` for artistic blur effects — use `blur` with appropriate kernel/sigma
 - Do NOT pass even kernel sizes to gaussian or median blur — they must be odd integers
-- Do NOT use this skill for brightness/contrast adjustment — use `color-adjustment`
+- Do NOT use this skill for brightness/contrast adjustment — use `color-adjust`

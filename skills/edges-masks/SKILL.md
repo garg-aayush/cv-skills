@@ -1,15 +1,15 @@
 ---
-name: segment-morphology
+name: edges-masks
 description: >
-  Threshold, detect edges (Canny/Sobel/Laplacian), apply morphological operations
-  (erode/dilate/open/close), extract contours, segment by color range, and extract
-  foreground with GrabCut. Use when the task involves binarization, edge detection,
-  morphology, contour finding, color segmentation, or foreground extraction. Do NOT
-  use for blur/sharpen (use filters-enhancement), color adjustment (use
-  color-adjustment), or image compositing (use compositing-blending).
+  Threshold images, detect edges, apply morphological operations, find contours,
+  segment by color, and extract foreground masks with GrabCut. Use when the user
+  wants to create a binary mask, find outlines or edges, clean up a mask with
+  erode/dilate, extract object boundaries, isolate a color range, or generate a
+  foreground/background segmentation for analysis. For removing a background to
+  produce a transparent cutout image, use image-combine remove-bg instead.
 ---
 
-# segment-morphology
+# edges-masks
 
 Thresholding, edge detection, morphological operations, contour extraction, color segmentation, and GrabCut foreground extraction.
 
@@ -201,7 +201,7 @@ Output must be `.png` (RGBA with alpha channel). Requires a color input image.
 ## Anti-patterns
 
 - Do NOT use `threshold` for noise removal — use `morphology --op open` to clean up a binary image
-- Do NOT use `canny` for sharpening — use the `filters-enhancement` skill's sharpen subcommand
+- Do NOT use `canny` for sharpening — use the `image-filters` skill's sharpen subcommand
 - Do NOT use `contours` on a noisy image without preprocessing — threshold or blur first
 - Do NOT use `color-segment` with RGB values — convert your range to HSV or LAB first
 - Do NOT use `grabcut` with JPEG output — GrabCut produces RGBA, which requires PNG

@@ -18,25 +18,25 @@ cv-skills/
 │   ├── plugin.json              # plugin metadata (name, version, author, license, keywords)
 │   └── marketplace.json         # skill listing for marketplace distribution
 ├── skills/
-│   ├── format-io/
+│   ├── image-format/
 │   │   ├── SKILL.md
 │   │   └── scripts/format_io.py
 │   ├── svg-convert/
 │   │   ├── SKILL.md
 │   │   └── scripts/svg_convert.py
-│   ├── resize-geometry/
+│   ├── resize-transform/
 │   │   ├── SKILL.md
 │   │   └── scripts/resize_geometry.py
-│   ├── color-adjustment/
+│   ├── color-adjust/
 │   │   ├── SKILL.md
 │   │   └── scripts/color_adjustment.py
-│   ├── filters-enhancement/
+│   ├── image-filters/
 │   │   ├── SKILL.md
 │   │   └── scripts/filters_enhancement.py
-│   ├── segment-morphology/
+│   ├── edges-masks/
 │   │   ├── SKILL.md
 │   │   └── scripts/segment_morphology.py
-│   └── compositing-blending/
+│   └── image-combine/
 │       ├── SKILL.md
 │       └── scripts/compositing_blending.py
 ├── scripts/
@@ -70,13 +70,13 @@ Rules (inspired by [Hugging Face Skills UV_RULES.md](https://github.com/huggingf
 
 | Skill | PEP 723 deps |
 |---|---|
-| format-io | `pillow`, `pillow-heif`, `numpy` |
+| image-format | `pillow`, `pillow-heif`, `numpy` |
 | svg-convert | `pillow` (resvg CLI binary called via subprocess; cairosvg as fallback) |
-| resize-geometry | `pillow`, `numpy` |
-| color-adjustment | `pillow`, `opencv-python-headless`, `numpy` |
-| filters-enhancement | `pillow`, `opencv-python-headless`, `numpy` |
-| segment-morphology | `opencv-python-headless`, `numpy` |
-| compositing-blending | `pillow`, `opencv-python-headless`, `numpy` |
+| resize-transform | `pillow`, `numpy` |
+| color-adjust | `pillow`, `opencv-python-headless`, `numpy` |
+| image-filters | `pillow`, `opencv-python-headless`, `numpy` |
+| edges-masks | `opencv-python-headless`, `numpy` |
+| image-combine | `pillow`, `opencv-python-headless`, `numpy` |
 
 ### SVG Conversion: resvg + cairosvg Fallback
 
@@ -87,7 +87,7 @@ The `svg-convert` skill uses a two-tier approach:
 
 ---
 
-## Skill 1: `format-io` — Format & I/O (6 operations)
+## Skill 1: `image-format` — Format & I/O (6 operations)
 
 Everything about reading, writing, and converting raster image files.
 
@@ -114,7 +114,7 @@ Vector-to-raster conversion — separate skill because SVG handling requires ext
 
 ---
 
-## Skill 3: `resize-geometry` — Resize & Geometry (6 operations)
+## Skill 3: `resize-transform` — Resize & Geometry (6 operations)
 
 Spatial transformations — changing dimensions, orientation, and layout.
 
@@ -129,9 +129,9 @@ Spatial transformations — changing dimensions, orientation, and layout.
 
 ---
 
-## Skill 4: `color-adjustment` — Color & Adjustment (9 operations)
+## Skill 4: `color-adjust` — Color & Adjustment (9 operations)
 
-Color manipulation, tone adjustments, channel operations, and histogram analysis. _(Sharpness moved to filters-enhancement.)_
+Color manipulation, tone adjustments, channel operations, and histogram analysis. _(Sharpness moved to image-filters.)_
 
 | # | Operation | Description | Library |
 |---|---|---|---|
@@ -147,7 +147,7 @@ Color manipulation, tone adjustments, channel operations, and histogram analysis
 
 ---
 
-## Skill 5: `filters-enhancement` — Filters & Enhancement (4 operations)
+## Skill 5: `image-filters` — Filters & Enhancement (4 operations)
 
 Spatial filtering, noise reduction, and sharpening.
 
@@ -160,7 +160,7 @@ Spatial filtering, noise reduction, and sharpening.
 
 ---
 
-## Skill 6: `segment-morphology` — Segmentation & Morphology (7 operations)
+## Skill 6: `edges-masks` — Segmentation & Morphology (7 operations)
 
 Thresholding, edge detection, morphological operations, masking, and segmentation — merged into one skill because these are almost always chained together in pipelines (threshold → morphology cleanup → mask/contour extraction).
 
@@ -176,7 +176,7 @@ Thresholding, edge detection, morphological operations, masking, and segmentatio
 
 ---
 
-## Skill 7: `compositing-blending` — Compositing & Blending (4 operations)
+## Skill 7: `image-combine` — Compositing & Blending (4 operations)
 
 Multi-image operations — combining, comparing, and assembling.
 
@@ -193,13 +193,13 @@ Multi-image operations — combining, comparing, and assembling.
 
 | Skill | Operations | Primary Libraries |
 |---|---|---|
-| format-io | 6 | Pillow |
+| image-format | 6 | Pillow |
 | svg-convert | 3 | resvg CLI + cairosvg fallback |
-| resize-geometry | 6 | Pillow |
-| color-adjustment | 9 | Pillow, OpenCV, numpy |
-| filters-enhancement | 4 | OpenCV, Pillow |
-| segment-morphology | 7 | OpenCV |
-| compositing-blending | 4 | Pillow, OpenCV, numpy |
+| resize-transform | 6 | Pillow |
+| color-adjust | 9 | Pillow, OpenCV, numpy |
+| image-filters | 4 | OpenCV, Pillow |
+| edges-masks | 7 | OpenCV |
+| image-combine | 4 | Pillow, OpenCV, numpy |
 | **Total** | **42** | |
 
 ## Future Version Candidates
@@ -208,9 +208,9 @@ See `docs/future_candidates.md` for the full list of operations deferred to v2+.
 
 ## Suggested Build Order
 
-1. **Skills 1-3** (format-io, svg-convert, resize-geometry) — foundational, replaces basic-image-editing
-2. **Skills 4-5** (color-adjustment, filters-enhancement) — preprocessing pipeline
-3. **Skills 6-7** (segment-morphology, compositing-blending) — core CV operations
+1. **Skills 1-3** (image-format, svg-convert, resize-transform) — foundational, replaces basic-image-editing
+2. **Skills 4-5** (color-adjust, image-filters) — preprocessing pipeline
+3. **Skills 6-7** (edges-masks, image-combine) — core CV operations
 
 ## Design Decisions
 
@@ -259,5 +259,5 @@ See `docs/future_candidates.md` for the full list of operations deferred to v2+.
 - [x] ~~Review reference plugins for best practices~~ — Reviewed [HF Skills](https://github.com/huggingface/skills) and [evals-skills](https://github.com/hamelsmu/evals-skills)
 - [x] ~~SVG library choice~~ — resvg CLI (primary) + cairosvg (fallback)
 - [x] ~~CLI interface pattern~~ — **Subcommands** (e.g., `uv run script.py blur INPUT -o OUT --sigma 2`). Each operation is a subcommand with its own params and `--help`. Matches HF datasets pattern.
-- [x] ~~Error handling~~ — **Strict with helpful errors**. Reject bad input with actionable messages (e.g., `"Error: Expected grayscale image, got RGB. Run color-adjustment grayscale first."`). No silent auto-conversion.
+- [x] ~~Error handling~~ — **Strict with helpful errors**. Reject bad input with actionable messages (e.g., `"Error: Expected grayscale image, got RGB. Run color-adjust grayscale first."`). No silent auto-conversion.
 

@@ -1,14 +1,15 @@
 ---
-name: resize-geometry
+name: resize-transform
 description: >
-  Resize, crop, auto-crop, pad, rotate/flip, and create montage grids from images.
-  Use when the task involves changing image dimensions, spatial transformations,
-  cropping, padding, rotation, or combining images into a grid. Do NOT use for
-  format conversion (use format-io), color adjustments (use color-adjustment),
-  or filtering (use filters-enhancement).
+  Resize, crop, pad, rotate, flip, and arrange images into grids. Use when the
+  user wants to make an image smaller or larger, create a thumbnail, scale by
+  percentage, fit to specific dimensions, cut out a region, trim whitespace or
+  borders, add padding/letterbox, rotate or mirror, or combine images side by
+  side in a montage. Do NOT use for format conversion (use image-format). For
+  arranging images as layers/overlays rather than a grid, use image-combine.
 ---
 
-# resize-geometry
+# resize-transform
 
 Resize, crop, auto-crop, pad, rotate/flip, and montage grid layout for raster images.
 
@@ -193,9 +194,9 @@ All images are resized to match the first image's dimensions. Requires at least 
 
 ## Anti-patterns
 
-- Do NOT use `resize` for format conversion — use `format-io convert`
+- Do NOT use `resize` for format conversion — use `image-format convert`
 - Do NOT use `crop --box` with negative coordinates — coordinates must be within image bounds
 - Do NOT combine `--box` and `--aspect` in a single crop — pick one mode
 - Do NOT combine `--percent` with `--width`/`--height` or `--fit` — pick one resize mode
 - Do NOT use `pad` on images larger than the target — resize first with `resize --fit`
-- Do NOT use `rotate` for EXIF orientation fixes — use `format-io exif --mode auto-orient`
+- Do NOT use `rotate` for EXIF orientation fixes — use `image-format exif --mode auto-orient`

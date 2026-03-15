@@ -3,7 +3,7 @@
 # requires-python = ">=3.10"
 # dependencies = ["pillow", "opencv-python-headless", "numpy"]
 # ///
-"""segment-morphology: Threshold, edge detection, morphology, contours, color segmentation, and GrabCut."""
+"""edges-masks: Threshold, edge detection, morphology, contours, color segmentation, and GrabCut."""
 
 from __future__ import annotations
 
@@ -320,7 +320,7 @@ def cmd_morphology(args: argparse.Namespace) -> None:
     if out.suffix.lower() in (".jpg", ".jpeg") and out_img.mode == "RGBA":
         _err(
             "Cannot save RGBA image as JPEG (JPEG does not support transparency). "
-            "Use PNG or remove alpha first with format-io: "
+            "Use PNG or remove alpha first with image-format: "
             "uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
         )
 

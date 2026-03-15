@@ -3,7 +3,7 @@
 # requires-python = ">=3.10"
 # dependencies = ["pillow", "opencv-python-headless", "numpy"]
 # ///
-"""color-adjustment: Tone, saturation, grayscale, invert, color space, channel ops, histograms, equalization, auto-levels."""
+"""color-adjust: Tone, saturation, grayscale, invert, color space, channel ops, histograms, equalization, auto-levels."""
 
 from __future__ import annotations
 
@@ -76,7 +76,7 @@ def _save_image(img: Image.Image, path: Path, **kwargs) -> None:
             if img.mode == "RGBA":
                 _err(
                     "Cannot save RGBA image as JPEG (JPEG does not support transparency). "
-                    "Remove alpha first with format-io: uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
+                    "Remove alpha first with image-format: uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
                 )
             if img.mode not in ("RGB", "L"):
                 img = img.convert("RGB")
@@ -341,7 +341,7 @@ def cmd_channel(args: argparse.Namespace) -> None:
         if replace_img.size != img.size:
             _err(
                 f"Replacement image size {replace_img.size} doesn't match input size {img.size}. "
-                "Resize the replacement first with resize-geometry."
+                "Resize the replacement first with resize-transform."
             )
 
         channels[channel_idx] = replace_img

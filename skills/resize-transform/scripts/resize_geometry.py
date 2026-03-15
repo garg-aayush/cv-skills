@@ -3,7 +3,7 @@
 # requires-python = ">=3.10"
 # dependencies = ["pillow", "numpy"]
 # ///
-"""resize-geometry: Resize, crop, auto-crop, pad, rotate/flip, and montage grid layout."""
+"""resize-transform: Resize, crop, auto-crop, pad, rotate/flip, and montage grid layout."""
 
 from __future__ import annotations
 
@@ -126,7 +126,7 @@ def _ensure_mode_for_output(img: Image.Image, output_path: Path) -> Image.Image:
         if img.mode == "RGBA":
             _err(
                 "Cannot save RGBA image as JPEG (JPEG does not support transparency). "
-                "Remove alpha first with format-io: uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
+                "Remove alpha first with image-format: uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
             )
         if img.mode not in ("RGB", "L"):
             img = img.convert("RGB")
@@ -272,7 +272,7 @@ def cmd_crop(args: argparse.Namespace) -> None:
         if x2 > orig_w or y2 > orig_h:
             _err(
                 f"Crop box ({x1},{y1},{x2},{y2}) exceeds image bounds ({orig_w}x{orig_h}). "
-                f"Adjust coordinates or use resize-geometry pad to enlarge the canvas first."
+                f"Adjust coordinates or use resize-transform pad to enlarge the canvas first."
             )
 
         result = img.crop((x1, y1, x2, y2))

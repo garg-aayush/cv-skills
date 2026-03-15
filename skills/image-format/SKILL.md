@@ -1,15 +1,17 @@
 ---
-name: format-io
+name: image-format
 description: >
-  Read image metadata, convert between raster formats (PNG/JPEG/WebP/TIFF/BMP/HEIC),
-  handle alpha channels, manage EXIF data, manage ICC color profiles, and
-  split/assemble animated GIF/WebP frames. Use when the task involves format
-  conversion, metadata inspection, transparency, EXIF orientation, color profiles,
-  or animation frames. Do NOT use for resizing, cropping, color adjustment, filtering,
-  or pixel-level editing.
+  Convert between image formats (PNG, JPEG, WebP, TIFF, BMP, HEIC), inspect
+  image metadata, handle alpha/transparency, manage EXIF and ICC profiles, and
+  split/assemble animated GIF/WebP frames. Use when the user wants to change
+  file type, save as a different format, export for web, check image info,
+  strip metadata, fix photo orientation, or work with animation frames.
+  Do NOT use for SVG-to-raster conversion (use svg-convert). For removing
+  transparency by compositing on a background, use this skill's alpha command,
+  not image-combine.
 ---
 
-# format-io
+# image-format
 
 Image format conversion, metadata inspection, alpha/EXIF/ICC handling, and animation frame split/assemble.
 
@@ -180,8 +182,8 @@ Output must be `.gif` or `.webp`. Requires at least 2 frames. All frames must ha
 
 ## Anti-patterns
 
-- Do NOT use `convert` for resizing — use the `resize-geometry` skill
-- Do NOT use `convert` to adjust colors/brightness — use `color-adjustment`
+- Do NOT use `convert` for resizing — use the `resize-transform` skill
+- Do NOT use `convert` to adjust colors/brightness — use `color-adjust`
 - Do NOT manually parse EXIF bytes — use `exif --mode read`
 - Do NOT strip alpha by converting RGBA to RGB directly — use `alpha --mode remove` to composite properly
 - Do NOT convert animated images with `convert` — use `split-frames` / `assemble-frames`

@@ -3,7 +3,7 @@
 # requires-python = ">=3.10"
 # dependencies = ["pillow", "pillow-heif", "numpy"]
 # ///
-"""format-io: Read image metadata, convert formats, handle alpha/EXIF/ICC, split/assemble animation frames."""
+"""image-format: Read image metadata, convert formats, handle alpha/EXIF/ICC, split/assemble animation frames."""
 
 from __future__ import annotations
 

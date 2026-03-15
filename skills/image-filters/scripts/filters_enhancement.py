@@ -3,7 +3,7 @@
 # requires-python = ">=3.10"
 # dependencies = ["pillow", "opencv-python-headless", "numpy"]
 # ///
-"""filters-enhancement: Blur, bilateral filter, sharpen, and denoise images."""
+"""image-filters: Blur, bilateral filter, sharpen, and denoise images."""
 
 from __future__ import annotations
 
@@ -75,7 +75,7 @@ def _save_image(img: Image.Image, path: Path, **kwargs) -> None:
         if ext in (".jpg", ".jpeg") and img.mode == "RGBA":
             _err(
                 "Cannot save RGBA image as JPEG (JPEG does not support transparency). "
-                "Remove alpha first with the format-io skill: "
+                "Remove alpha first with the image-format skill: "
                 "uv run format_io.py alpha INPUT -o intermediate.png --mode remove"
             )
         if ext in (".jpg", ".jpeg") and img.mode not in ("RGB", "L"):

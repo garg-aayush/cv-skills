@@ -3,7 +3,7 @@
 # requires-python = ">=3.10"
 # dependencies = ["pillow", "opencv-python-headless", "numpy"]
 # ///
-"""compositing-blending: Alpha composite, blend, paste/overlay, watermark, pixel diff, and background removal."""
+"""image-combine: Alpha composite, blend, paste/overlay, watermark, pixel diff, and background removal."""
 
 from __future__ import annotations
 
@@ -170,7 +170,7 @@ def cmd_composite(args: argparse.Namespace) -> None:
                 f"Image size mismatch: base is {img1.size[0]}x{img1.size[1]}, "
                 f"overlay is {img2.size[0]}x{img2.size[1]}. "
                 f"Images must be the same size for alpha compositing. "
-                f"Resize first with the resize-geometry skill."
+                f"Resize first with the resize-transform skill."
             )
 
         result = Image.alpha_composite(img1, img2)
@@ -197,7 +197,7 @@ def cmd_composite(args: argparse.Namespace) -> None:
                 f"Image size mismatch: image1 is {img1.size[0]}x{img1.size[1]}, "
                 f"image2 is {img2.size[0]}x{img2.size[1]}. "
                 f"Images must be the same size for blending. "
-                f"Resize first with the resize-geometry skill."
+                f"Resize first with the resize-transform skill."
             )
 
         # Ensure same mode
@@ -407,7 +407,7 @@ def cmd_diff(args: argparse.Namespace) -> None:
             f"Image size mismatch: image1 is {img1.size[0]}x{img1.size[1]}, "
             f"image2 is {img2.size[0]}x{img2.size[1]}. "
             f"Images must be the same size for diff. "
-            f"Resize first with the resize-geometry skill."
+            f"Resize first with the resize-transform skill."
         )
 
     # Convert to same mode for comparison

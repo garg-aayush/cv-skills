@@ -10,25 +10,25 @@ cv-skills/
 │   ├── plugin.json
 │   └── marketplace.json
 ├── skills/
-│   ├── format-io/
+│   ├── image-format/
 │   │   ├── SKILL.md
 │   │   └── scripts/format_io.py
 │   ├── svg-convert/
 │   │   ├── SKILL.md
 │   │   └── scripts/svg_convert.py
-│   ├── resize-geometry/
+│   ├── resize-transform/
 │   │   ├── SKILL.md
 │   │   └── scripts/resize_geometry.py
-│   ├── color-adjustment/
+│   ├── color-adjust/
 │   │   ├── SKILL.md
 │   │   └── scripts/color_adjustment.py
-│   ├── filters-enhancement/
+│   ├── image-filters/
 │   │   ├── SKILL.md
 │   │   └── scripts/filters_enhancement.py
-│   ├── segment-morphology/
+│   ├── edges-masks/
 │   │   ├── SKILL.md
 │   │   └── scripts/segment_morphology.py
-│   └── compositing-blending/
+│   └── image-combine/
 │       ├── SKILL.md
 │       └── scripts/compositing_blending.py
 ├── hooks/
@@ -52,13 +52,13 @@ UV-only workflow — no `pip install`, no virtualenv. Every script uses PEP 723 
 
 | Skill | Ops | What it covers |
 |---|---|---|
-| format-io | 6 | Format conversion, alpha, EXIF, ICC, animated frames |
+| image-format | 6 | Format conversion, alpha, EXIF, ICC, animated frames |
 | svg-convert | 3 | SVG → raster (PNG/JPEG/WebP), scaling, background |
-| resize-geometry | 6 | Resize, crop, auto-crop, pad, rotate/flip, montage |
-| color-adjustment | 9 | Tone, saturation, grayscale, color spaces, channels, histograms |
-| filters-enhancement | 4 | Blur, bilateral filter, sharpen, denoise |
-| segment-morphology | 7 | Threshold, edges, morphology, contours, color segmentation, GrabCut |
-| compositing-blending | 4 | Composite/blend, watermark, image diff, background removal |
+| resize-transform | 6 | Resize, crop, auto-crop, pad, rotate/flip, montage |
+| color-adjust | 9 | Tone, saturation, grayscale, color spaces, channels, histograms |
+| image-filters | 4 | Blur, bilateral filter, sharpen, denoise |
+| edges-masks | 7 | Threshold, edges, morphology, contours, color segmentation, GrabCut |
+| image-combine | 4 | Composite/blend, watermark, image diff, background removal |
 
 ## Key Design Decisions
 

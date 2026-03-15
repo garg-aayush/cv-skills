@@ -1,10 +1,11 @@
 ---
 name: svg-convert
 description: >
-  Convert SVG files to raster formats (PNG/JPEG/WebP), inspect SVG metadata,
-  and render at custom scales or dimensions. Use when the task involves SVG
-  rendering, SVG-to-raster conversion, or SVG inspection. Do NOT use for
-  raster-to-raster conversion (use format-io) or raster image editing.
+  Render SVG vector files to raster images (PNG, JPEG, WebP) at any scale or
+  size, and inspect SVG metadata. Use when the user wants to convert an SVG,
+  render a vector graphic, rasterize an SVG, or check SVG dimensions/viewBox.
+  Do NOT use for raster-to-raster conversion (use image-format) or editing
+  raster images.
 ---
 
 # svg-convert
@@ -101,8 +102,8 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/svg_convert.py resize-render logo.svg -o logo
 
 ## Anti-patterns
 
-- Do NOT use this skill for raster-to-raster conversion -- use the `format-io` skill
-- Do NOT use this skill to resize raster images -- use the `resize-geometry` skill
+- Do NOT use this skill for raster-to-raster conversion -- use the `image-format` skill
+- Do NOT use this skill to resize raster images -- use the `resize-transform` skill
 - Do NOT combine `--scale` with `--width`/`--height` in `resize-render` -- use one or the other
 - Do NOT assume SVG has width/height attributes -- check with `info` first if dimensions are needed
 - Do NOT use `render` when you need a specific output size -- use `resize-render` with `--scale` or `--width`/`--height`
