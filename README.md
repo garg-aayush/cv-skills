@@ -7,14 +7,14 @@ Skills for performing classical image processing operations: format conversion, 
 Install the plugin, then just describe what you need — Claude picks the right skill automatically.
 
 ```
-/plugin marketplace add aayushgarg/cv-skills
-/plugin install cv-skills@aayushgarg-cv-skills
+/plugin marketplace add garg-aayush/cv-skills
+/plugin install cv-skills@garg-aayush-cv-skills
 ```
 
 To update:
 
 ```
-/plugin update cv-skills@aayushgarg-cv-skills
+/plugin update cv-skills@garg-aayush-cv-skills
 ```
 
 ### Prerequisites
