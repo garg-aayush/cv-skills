@@ -206,3 +206,4 @@ Output must be `.png` (RGBA with alpha channel). Requires a color input image.
 - Do NOT use `color-segment` with RGB values — convert your range to HSV or LAB first
 - Do NOT use `grabcut` with JPEG output — GrabCut produces RGBA, which requires PNG
 - Do NOT chain `threshold` + `morphology` manually for simple cleanup — use `morphology --op open/close` directly on the binary result
+- Do NOT use this skill to extract an existing transparency mask — if the user asks for "the mask" of an image, first check `image-format info` → `has_alpha`. If true, use `image-format alpha --mode extract` instead. Only compute a mask with this skill when no alpha channel exists or the user explicitly asks to generate/calculate one.

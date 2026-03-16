@@ -1,6 +1,6 @@
 {
   "name": "cv-skills",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Skills for performing classical image processing operations: format conversion, SVG rendering, resize/crop/rotate, color adjustment, filters, segmentation/morphology, and compositing/blending",
   "author": {
     "name": "Aayush Garg"
