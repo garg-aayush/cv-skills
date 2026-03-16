@@ -6,3 +6,4 @@ dist/
 build/
 .DS_Store
 images/out/
+.claude/settings.local.json

@@ -58,7 +58,7 @@ UV-only workflow — no `pip install`, no virtualenv. Every script uses PEP 723 
 
 | Skill | Ops | What it covers |
 |---|---|---|
-| image-format | 6 | Format conversion, alpha, EXIF, ICC, animated frames |
+| image-format | 7 | Format conversion, alpha, EXIF, ICC, animated frames |
 | svg-convert | 3 | SVG → raster (PNG/JPEG/WebP), scaling, background |
 | resize-transform | 6 | Resize, crop, auto-crop, pad, rotate/flip, montage |
 | color-adjust | 9 | Tone, saturation, grayscale, color spaces, channels, histograms |
