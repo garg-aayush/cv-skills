@@ -7,3 +7,4 @@ build/
 .DS_Store
 images/out/
 .claude/settings.local.json
+PLAN.md
