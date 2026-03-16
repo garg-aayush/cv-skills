@@ -1,12 +1,7 @@
 ---
 name: image-combine
-description: >
-  Composite, blend, overlay, and paste images together; add text or image
-  watermarks; compute visual difference maps; remove backgrounds. Use when the
-  user wants to combine or layer two images, create a watermark, compare two
-  images for differences, merge photos, or remove a background to produce a
-  transparent PNG cutout. Do NOT use for arranging images in a grid (use
-  resize-transform montage) or for edge/contour analysis (use edges-masks).
+description: Composite, blend, overlay, and paste images together; add text or image watermarks; compute visual difference maps; remove backgrounds. Use when the user wants to combine or layer two images, create a watermark, compare two images for differences, merge photos, or remove a background to produce a transparent PNG cutout. Do NOT use for arranging images in a grid (use resize-transform montage) or for edge/contour analysis (use edges-masks).
+user_invocable: true
 ---
 
 # image-combine

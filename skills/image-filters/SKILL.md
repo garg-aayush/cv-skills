@@ -1,11 +1,7 @@
 ---
 name: image-filters
-description: >
-  Blur, sharpen, denoise, and apply edge-preserving bilateral filters. Use when
-  the user wants to smooth an image, soften details, reduce noise or grain,
-  sharpen a blurry photo, or apply Gaussian/median/unsharp-mask filters. Do NOT
-  use for edge detection (use edges-masks) or color/brightness adjustments
-  (use color-adjust).
+description: Blur, sharpen, denoise, and apply edge-preserving bilateral filters. Use when the user wants to smooth an image, soften details, reduce noise or grain, sharpen a blurry photo, or apply Gaussian/median/unsharp-mask filters. Do NOT use for edge detection (use edges-masks) or color/brightness adjustments (use color-adjust).
+user_invocable: true
 ---
 
 # image-filters

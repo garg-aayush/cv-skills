@@ -1,12 +1,7 @@
 ---
 name: resize-transform
-description: >
-  Resize, crop, pad, rotate, flip, and arrange images into grids. Use when the
-  user wants to make an image smaller or larger, create a thumbnail, scale by
-  percentage, fit to specific dimensions, cut out a region, trim whitespace or
-  borders, add padding/letterbox, rotate or mirror, or combine images side by
-  side in a montage. Do NOT use for format conversion (use image-format). For
-  arranging images as layers/overlays rather than a grid, use image-combine.
+description: Resize, crop, pad, rotate, flip, and arrange images into grids. Use when the user wants to make an image smaller or larger, create a thumbnail, scale by percentage, fit to specific dimensions, cut out a region, trim whitespace or borders, add padding/letterbox, rotate or mirror, or combine images side by side in a montage. Do NOT use for format conversion (use image-format). For arranging images as layers/overlays rather than a grid, use image-combine.
+user_invocable: true
 ---
 
 # resize-transform

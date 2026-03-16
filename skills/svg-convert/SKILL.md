@@ -1,11 +1,7 @@
 ---
 name: svg-convert
-description: >
-  Render SVG vector files to raster images (PNG, JPEG, WebP) at any scale or
-  size, and inspect SVG metadata. Use when the user wants to convert an SVG,
-  render a vector graphic, rasterize an SVG, or check SVG dimensions/viewBox.
-  Do NOT use for raster-to-raster conversion (use image-format) or editing
-  raster images.
+description: Render SVG vector files to raster images (PNG, JPEG, WebP) at any scale or size, and inspect SVG metadata. Use when the user wants to convert an SVG, render a vector graphic, rasterize an SVG, or check SVG dimensions/viewBox. Do NOT use for raster-to-raster conversion (use image-format) or editing raster images.
+user_invocable: true
 ---
 
 # svg-convert

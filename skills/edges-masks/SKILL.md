@@ -1,12 +1,7 @@
 ---
 name: edges-masks
-description: >
-  Threshold images, detect edges, apply morphological operations, find contours,
-  segment by color, and extract foreground masks with GrabCut. Use when the user
-  wants to create a binary mask, find outlines or edges, clean up a mask with
-  erode/dilate, extract object boundaries, isolate a color range, or generate a
-  foreground/background segmentation for analysis. For removing a background to
-  produce a transparent cutout image, use image-combine remove-bg instead.
+description: Threshold images, detect edges, apply morphological operations, find contours, segment by color, and extract foreground masks with GrabCut. Use when the user wants to create a binary mask, find outlines or edges, clean up a mask with erode/dilate, extract object boundaries, isolate a color range, or generate a foreground/background segmentation for analysis. For removing a background to produce a transparent cutout image, use image-combine remove-bg instead.
+user_invocable: true
 ---
 
 # edges-masks

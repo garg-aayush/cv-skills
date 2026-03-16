@@ -1,12 +1,7 @@
 ---
 name: color-adjust
-description: >
-  Adjust brightness, contrast, gamma, saturation, and color balance; convert to
-  grayscale or between color spaces; split/merge channels; compute and equalize
-  histograms; auto-level. Use when the user wants to brighten or darken a photo,
-  fix exposure, boost or reduce color intensity, desaturate, invert colors, view
-  color channels, or correct color cast. For producing a binary black/white mask
-  (thresholding), use edges-masks instead.
+description: Adjust brightness, contrast, gamma, saturation, and color balance; convert to grayscale or between color spaces; split/merge channels; compute and equalize histograms; auto-level. Use when the user wants to brighten or darken a photo, fix exposure, boost or reduce color intensity, desaturate, invert colors, view color channels, or correct color cast. For producing a binary black/white mask (thresholding), use edges-masks instead.
+user_invocable: true
 ---
 
 # color-adjust

@@ -1,15 +1,7 @@
 ---
 name: image-format
-description: >
-  Convert between image formats (PNG, JPEG, WebP, TIFF, BMP, HEIC), inspect
-  image metadata, handle alpha/transparency, manage EXIF and ICC profiles, and
-  split/assemble animated GIF/WebP frames. Use when the user wants to change
-  file type, save as a different format, export for web, check image info,
-  strip metadata, fix photo orientation, extract an image's existing
-  transparency mask (alpha channel), or work with animation frames.
-  Do NOT use for SVG-to-raster conversion (use svg-convert). For removing
-  transparency by compositing on a background, use this skill's alpha command,
-  not image-combine.
+description: Convert between image formats (PNG, JPEG, WebP, TIFF, BMP, HEIC), inspect image metadata, handle alpha/transparency, manage EXIF and ICC profiles, and split/assemble animated GIF/WebP frames. Use when the user wants to change file type, save as a different format, export for web, check image info, strip metadata, fix photo orientation, extract an image's existing transparency mask (alpha channel), or work with animation frames. Do NOT use for SVG-to-raster conversion (use svg-convert). For removing transparency by compositing on a background, use this skill's alpha command, not image-combine.
+user_invocable: true
 ---
 
 # image-format
